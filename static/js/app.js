@@ -4,7 +4,7 @@
 
 // Load sample data set into data variable - split it up into the 3 main
 // JSON sections
-let data = d3.json("samples.json").then(function(d) {
+let data = d3.json("/data/samples.json").then(function(d) {
     // console.log(d);
     // console.log(d.samples)
     console.log(d.metadata)
@@ -33,7 +33,7 @@ function dropDown(sdata) {
 function optionChanged(selectedObject) {        // references the function in index.html
     var value = selectedObject                  // Unneeded and can probably just pass it
     // console.log(value);                         // Checked if it is the correct value
-    let data = d3.json("samples.json").then(function(d){    // Pulling JSON
+    let data = d3.json("/data/samples.json").then(function(d){    // Pulling JSON
         // console.log(d.metadata.length)                   // Getting array length to pass
         let len = d.metadata.length
         demo_search(value, len);                            // Pass to the search function
@@ -61,7 +61,7 @@ function demographics(data, search) {
 // Searches through the array / JSON (metadata) to find the patient ID from optionCHanged
 // Search is the patient ID/name and len is the length of the array to search
 function demo_search(search, len){
-    let data = d3.json("samples.json").then(function(d){    // Load data
+    let data = d3.json("/data/samples.json").then(function(d){    // Load data
         // console.log(d.metadata.length)
         let meta = d.metadata                               // Just need meta data
         let sample = d.samples
