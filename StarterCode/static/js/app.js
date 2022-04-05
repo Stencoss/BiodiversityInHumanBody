@@ -45,14 +45,14 @@ function optionChanged(selectedObject) {        // references the function in in
 //  Creates a unordered list of demographics
 function demographics(data, search) {
     var select_demo = d3.select('#sample-metadata');    // Selects the html class to put list in
-    select_demo.text("New Data")                        // Helps to delete stale data so new one is inputted
+    select_demo.text("")                        // Helps to delete stale data so new one is inputted
     var demoOut = select_demo.append("ul");             // Creates list follow by the list
     var id = demoOut.append("li").text("ID: " + data[search].id);
-    var bb = demoOut.append("li").text("BBtype: " + data[search].bbtype);
     var eth = demoOut.append("li").text("Ethnicity: " + data[search].ethnicity);
     var gen = demoOut.append("li").text("Gender: " + data[search].gender);
     var age = demoOut.append("li").text("Age: " + data[search].age);
     var loc = demoOut.append("li").text("Location: " + data[search].location)
+    var bb = demoOut.append("li").text("BBtype: " + data[search].bbtype);
     var washfr = demoOut.append("li").text("Wash Frequency: " + data[search].wfreq);;
     // console.log(search)
 
@@ -108,7 +108,7 @@ function bar_chart(data, search) {
     };
     let tracedata = [trace1]
     let layout = {
-        title: "Belly Button Stuff"
+        title: "Belly Button Sample"
         // margin: {
     //     l: 100,
     //     r: 100,
@@ -155,10 +155,9 @@ function gauge_chart(data, search) {
         {
             domain: { x: [0, 1], y: [0, 1] },
             value: wash_fr,
-            title: { text: "Washing Frequency" },
+            title: { text: "Belly Button Washing Frequency" },
             type: "indicator",
-            mode: "gauge+number+delta",
-            delta: { reference: 0 },
+            mode: "gauge+number",
             gauge: {
               axis: { range: [null, 9] },
               steps: [
